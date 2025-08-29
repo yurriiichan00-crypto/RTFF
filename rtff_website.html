@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road to Financial Freedom - Trading with Sidhant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffd700;
+            text-decoration: none;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ffd700; }
+            to { text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700; }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #ffd700;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4a 50%, #f39c12 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #cccccc;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: slideInUp 1s ease-out 0.4s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 5%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 80%;
+            right: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #ffd700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #f39c12);
+            border-radius: 2px;
+        }
+
+        /* Mindset Cards */
+        .mindset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mindset-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(22, 33, 62, 0.3) 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mindset-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mindset-card:hover::before {
+            opacity: 1;
+        }
+
+        .mindset-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffd700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .mindset-card h3 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .mindset-card p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .skill-item h4 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Trading Strategies */
+        .strategy-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .strategy-card {
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.8) 0%, rgba(26, 26, 46, 0.8) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #ffd700;
+            transition: all 0.3s ease;
+        }
+
+        .strategy-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .strategy-card h4 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .strategy-details {
+            color: #cccccc;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        /* Economic Insights */
+        .economic-timeline {
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 10px;
+            border-left: 3px solid #ffd700;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateX(10px);
+        }
+
+        .timeline-content h4 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: #cccccc;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 10, 0.9);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .footer-content {
+            margin-bottom: 2rem;
+        }
+
+        .youtube-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ffd700;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50px;
+            border: 2px solid #ffd700;
+            transition: all 0.3s ease;
+        }
+
+        .youtube-link:hover {
+            background: #ffd700;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .mindset-grid,
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* Stats Counter */
+        .stats-section {
+            background: rgba(255, 215, 0, 0.05);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            position: relative;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffd700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #cccccc;
+            font-size: 1.1rem;
+        }
+
+        /* Action Steps */
+        .action-steps {
+            margin-top: 3rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #ffd700;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            background: #ffd700;
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">RTFF</a>
+            <ul class="nav-links">
+                <li><a href="#mindset">Mindset</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#trading">Trading</a></li>
+                <li><a href="#leverage">Leverage</a></li>
+                <li><a href="#economics">Economics</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Road to Financial Freedom</h1>
+                <p>Install the "Wealth OS" in your mind and transform your relationship with money. Learn systematic wealth creation beyond quick trades and tips.</p>
+                <a href="#mindset" class="cta-button">Start Your Journey</a>
+            </div>
+        </div>
+        <div class="floating-element">💰</div>
+        <div class="floating-element">📈</div>
+        <div class="floating-element">🚀</div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Proven Results</h2>
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Crore Portfolio Achieved</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">1.5L</span>
+                    <span class="stat-label">Worth Free Course</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Types of Leverage</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">70%</span>
+                    <span class="stat-label">Market Sideways Days</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mindset Section -->
+    <section id="mindset">
+        <div class="container">
+            <h2 class="section-title fade-in">Wealth-Oriented Mindset</h2>
+            <div class="mindset-grid">
+                <div class="mindset-card fade-in">
+                    <h3>🧠 Wealth OS Installation</h3>
+                    <p>Transform your thinking to see wealth generation opportunities in every aspect of life. Money solves all "money problems" - which are significant.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>🎯 You vs. You Philosophy</h3>
+                    <p>Your only competition is yourself. Don't compare your Day 1 with someone else's Day 1000. Focus on becoming better than yesterday's self.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>⚖️ Balance is a Myth</h3>
+                    <p>For those without significant wealth, "balance" is an illusion. External factors can easily disrupt any perceived balance. Focus intensely on wealth creation first.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>🎲 Embrace Calculated Risk</h3>
+                    <p>It's riskier NOT to think big. Make decisions with 70% of information, not 100%. Waiting is slow and costly in the wealth game.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>🔍 Follow Curiosity</h3>
+                    <p>Follow your curiosity without judgment. This path often leads to profound knowledge and breakthrough opportunities.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>🌟 Long-Term Vision</h3>
+                    <p>Think in 5-10 year timelines, not 6 months. Quick expectations lead to giving up. Wealth creation is a systematic, long-term process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Essential Wealth Creation Skills</h2>
+            
+            <h3 style="text-align: center; color: #ffd700; margin: 2rem 0;">The Four Cs of Leverage</h3>
+            <div class="skills-container">
+                <div class="skill-item fade-in">
+                    <span class="skill-icon">💰</span>
+                    <h4>Capital</h4>
+                    <p>Investing in stocks, crypto, real estate. Master compound interest and strategic investments.</p>
+                </div>
+                <div class="skill-item fade-in">
+                    <span class="skill-icon">💻</span>
+                    <h4>Code</h4>
+                    <p>Build bots, APIs, trading strategies, and apps. Automation is the key to scalable wealth.</p>
+                </div>
+                <div class="skill-item fade-in">
+                    <span class="skill-icon">📝</span>
+                    <h4>Content</h4>
+                    <p>Create YouTube videos, courses, books. Turn your skills into valuable content assets.</p>
+                </div>
+                <div class="skill-item fade-in">
+                    <span class="skill-icon">🤝</span>
+                    <h4>Connections</h4>
+                    <p>Network with valuable people. Provide value first, then leverage relationships for growth.</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; color: #ffd700; margin: 3rem 0 2rem;">High-Paying Skills for 2030</h3>
+            <div class="skills-container">
+                <div class="skill-item fade-in">
+                    <span class="skill-icon">🗣️</span>
+                    <h4>Communication</h4>
+                    <p>The #1 skill that opens all doors. Master verbal and written communication.</p>
+                </div>
+                <div class="skill-item fade-in">
+                    <span class="skill-icon">💼</span>
+                    <h4>Sales</h4>
+                    <p>Crucial for any business. Learn to sell effectively - it's the lifeblood of wealth creation.</p>
+                </div>
+                <div class="skill-item fade-in">
+                    <span class="skill-icon">🤖</span>
+                    <h4>AI Mastery</h4>
+                    <p>AI is revolutionizing everything. Use Claude, Gemini for coding, content, and automation.</p>
+                </div>
+                <div class="skill-item fade-in">
+                    <span class="skill-icon">⚙️</span>
+                    <h4>Systems Building</h4>
+                    <p>Systems, not motivation, drive billionaires. Build SOPs and automate processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trading Section -->
+    <section id="trading">
+        <div class="container">
+            <h2 class="section-title fade-in">Proven Trading Strategies</h2>
+            <div class="strategy-grid">
+                <div class="strategy-card fade-in">
+                    <h4>📊 Risk Management Mastery</h4>
+                    <div class="strategy-details">
+                        <p><span class="highlight">Position Sizing</span>: The most crucial aspect. Control quantity, not stop loss.</p>
+                        <p><span class="highlight">Stop Loss Strategy</span>: Decide before entering. Use logical, not arbitrary stop losses.</p>
+                        <p><span class="highlight">Mathematical Edge</span>: Even 10% win rate with proper R-factor can be profitable.</p>
+                    </div>
+                </div>
+
+                <div class="strategy-card fade-in">
+                    <h4>🎯 Nifty: 30-Min Opening Range Breakout</h4>
+                    <div class="strategy-details">
+                        <p><span class="highlight">Time Required</span>: Maximum 35 minutes per day</p>
+                        <p><span class="highlight">Setup</span>: Break above previous day's high for long positions</p>
+                        <p><span class="highlight">Market Type</span>: Effective in trending markets</p>
+                    </div>
+                </div>
+
+                <div class="strategy-card fade-in">
+                    <h4>📈 VWAP Strategy for Sideways Markets</h4>
+                    <div class="strategy-details">
+                        <p><span class="highlight">Market Coverage</span>: Works for 70% of trading days (sideways markets)</p>
+                        <p><span class="highlight">Indicator</span>: VWAP with Bands 2 and 3</p>
+                        <p><span class="highlight">Edge</span>: Capitalizes on range-bound market movements</p>
+                    </div>
+                </div>
+
+                <div class="strategy-card fade-in">
+                    <h4>🪙 Bitcoin: Tokyo/London Session Breakout</h4>
+                    <div class="strategy-details">
+                        <p><span class="highlight">Setup</span>: Narrow range in Tokyo session</p>
+                        <p><span class="highlight">Entry</span>: 1-hour candle close outside the session box</p>
+                        <p><span class="highlight">Targets</span>: 1x box size for first, 1.5x for second target</p>
+                    </div>
+                </div>
+
+                <div class="strategy-card fade-in">
+                    <h4>⏰ Patience: "Waiting is Trading"</h4>
+                    <div class="strategy-details">
+                        <p><span class="highlight">Key Principle</span>: Don't force trades when markets aren't clear</p>
+                        <p><span class="highlight">Market Reality</span>: Choppy markets can last hours</p>
+                        <p><span class="highlight">Capital Rule</span>: Less capital = more patience required</p>
+                    </div>
+                </div>
+
+                <div class="strategy-card fade-in">
+                    <h4>📊 Option Selling vs. Buying</h4>
+                    <div class="strategy-details">
+                        <p><span class="highlight">Option Selling</span>: 66% natural success probability</p>
+                        <p><span class="highlight">Option Buying</span>: Only 33% success rate, requires fast moves</p>
+                        <p><span class="highlight">Recommendation</span>: Option buying not for beginners</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leverage Section -->
+    <section id="leverage">
+        <div class="container">
+            <h2 class="section-title fade-in">The Power of Leverage</h2>
+            <div class="mindset-grid">
+                <div class="mindset-card fade-in">
+                    <h3>💪 Types of Leverage</h3>
+                    <p><span class="highlight">Debt</span>: Borrow at 12%, earn 15% - unlimited money machine<br>
+                    <span class="highlight">OPM</span>: Other People's Money - how startups scale<br>
+                    <span class="highlight">Skills</span>: High-income abilities that multiply returns<br>
+                    <span class="highlight">Technology</span>: Automation and AI for scaling</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>🏦 Understanding Debt as Asset</h3>
+                    <p>Wealthy people love debt. Small loans put you at risk from banks, but large loans put banks at risk from you. Learn the game.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>💸 Capital Before Trading</h3>
+                    <p>Build 2-5 lakhs INR from other sources before serious trading. YouTube, businesses, or jobs - create monthly recurring income first.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>🌊 Cash Flow Drives Everything</h3>
+                    <p>Cash flow drives geopolitics and personal finances. Focus on generating consistent cash flow from multiple sources.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economics Section -->
+    <section id="economics">
+        <div class="container">
+            <h2 class="section-title fade-in">Global Economic Landscape</h2>
+            <div class="economic-timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>🇺🇸 US Dollar Dominance</h4>
+                        <p>Dollar became reserve currency through OPEC oil deals. Gold standard removed in 1973, making dollar a fiat currency backed by nothing.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>💥 Imperial Collapse Indicators</h4>
+                        <p>US debt: 35-37 trillion USD. When interest payments exceed military spending, empire collapse is imminent - this has already happened.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>🌍 BRICS and De-dollarisation</h4>
+                        <p>India leads BRICS to challenge dollar hegemony. Trading with Russia in Rubles despite sanctions. Modi's travels build local currency trade relationships.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>🪙 Gold's 3000x Growth</h4>
+                        <p>Since dollar left gold standard, gold became 3000 times more valuable. Physical gold recommended for long-term wealth preservation.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h4>🤖 AI Revolution Impact</h4>
+                        <p>AI projected to replace many jobs within 10-15 years. Companies like Nvidia becoming incredibly valuable. Position yourself in the AI economy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Steps -->
+    <section>
+        <div class="container">
+            <h2 class="section-title fade-in">Take Action Today</h2>
+            <div class="action-steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Day 1 Selfie Challenge</h4>
+                        <p>Take a "before" selfie today to measure your transformation by Day 30. Document your journey visually.</p>
+                    </div>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Bank Loan Exercise</h4>
+                        <p>Visit a bank, dress well, and ask about business loans. Learn the procedure, documentation, and build banker relationships.</p>
+                    </div>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Access Free Course</h4>
+                        <p>Type "exclamation basics" in Sidhant's chat for the comprehensive free course worth ₹1.5 lakhs. No email required.</p>
+                    </div>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>15-Minute Daily Habit</h4>
+                        <p>Implement daily market analysis routine. Create a detailed pre-market checklist before taking any trades.</p>
+                    </div>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Start Backtesting</h4>
+                        <p>Take at least 100 practice trades to determine reliable win rates. Build confidence through systematic testing.</p>
+                    </div>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h4>Leverage Finder Tool</h4>
+                        <p>Identify and capitalize on your unique leverages. What advantages do you already have that you're not using?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Opportunities -->
+    <section>
+        <div class="container">
+            <h2 class="section-title fade-in">Smart Investment Avenues</h2>
+            <div class="mindset-grid">
+                <div class="mindset-card fade-in">
+                    <h3>📈 Indian Stocks</h3>
+                    <p>Good for long-term growth but currently overvalued. Wait for market corrections for "discount shopping" opportunities.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>🪙 Gold Investment</h3>
+                    <p>Excellent long-term store of value. Physical gold recommended due to geopolitical shifts and de-dollarisation trends.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>₿ Cryptocurrency</h3>
+                    <p>Bitcoin dominance falling = Altcoin season approaching. Potential for massive gains (100x) but high risk. Legal in India with 30% tax.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>🇺🇸 US Markets</h3>
+                    <p>American stocks highly recommended. Trade via apps like Indy Money from India. US options are the "real game" in trading.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>🏦 US Sovereign Bonds</h3>
+                    <p>Safest asset class offering guaranteed interest. Essential for portfolio diversification and stable returns.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>🏠 Real Estate</h3>
+                    <p>Agricultural land and North East real estate mentioned as good options for long-term wealth building.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Analysis -->
+    <section style="background: rgba(255, 215, 0, 0.02);">
+        <div class="container">
+            <h2 class="section-title fade-in">Market Intelligence</h2>
+            <div class="strategy-grid">
+                <div class="strategy-card fade-in">
+                    <h4>🇮🇳 Indian Market Guidelines</h4>
+                    <div class="strategy-details">
+                        <p><span class="highlight">For Beginners</span>: Trade 1-2 quantity intraday for least resistance</p>
+                        <p><span class="highlight">SEBI Rules</span>: No live streaming of stocks, only indices discussion allowed</p>
+                        <p><span class="highlight">Tax Impact</span>: High STT and GST make frequent trading challenging</p>
+                    </div>
+                </div>
+
+                <div class="strategy-card fade-in">
+                    <h4>₿ Crypto Market Opportunity</h4>
+                    <div class="strategy-details">
+                        <p><span class="highlight">Current Signal</span>: Bitcoin dominance falling = Altcoin season incoming</p>
+                        <p><span class="highlight">Platforms</span>: Delta Exchange, Binance, BingX available for Indians</p>
+                        <p><span class="highlight">Fees</span>: Expensive across exchanges, need $50-80 movement to cover costs</p>
+                    </div>
+                </div>
+
+                <div class="strategy-card fade-in">
+                    <h4>💱 Forex Market Warning</h4>
+                    <div class="strategy-details">
+                        <p><span class="highlight">Legal Status</span>: ILLEGAL for retail traders in India</p>
+                        <p><span class="highlight">Risk</span>: High fraud potential, no legal recourse</p>
+                        <p><span class="highlight">Alternative</span>: Consider US markets instead for similar opportunities</p>
+                    </div>
+                </div>
+
+                <div class="strategy-card fade-in">
+                    <h4>🎰 Options Trading Probabilities</h4>
+                    <div class="strategy-details">
+                        <p><span class="highlight">Option Selling</span>: 66% natural success rate - profit from time decay</p>
+                        <p><span class="highlight">Option Buying</span>: 33% success rate - requires fast, directional moves</p>
+                        <p><span class="highlight">Beginner Advice</span>: Start with option selling for higher probability trades</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Revolution -->
+    <section>
+        <div class="container">
+            <h2 class="section-title fade-in">AI: Your Competitive Edge</h2>
+            <div class="mindset-grid">
+                <div class="mindset-card fade-in">
+                    <h3>🤖 AI for Trading</h3>
+                    <p>Use Claude and Gemini to write Python trading strategies, debug errors, and build automated systems. Don't give up on coding errors - AI solves them.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>🌐 AI for Business</h3>
+                    <p>Build automated apps that generate passive income. AI can create entire websites from simple prompts, saving time and money.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>📱 AI for Content</h3>
+                    <p>Automate content ideation, research, creation, and posting. Scale your content empire with AI assistance.</p>
+                </div>
+                <div class="mindset-card fade-in">
+                    <h3>💡 Natural Language Power</h3>
+                    <p>You don't need coding knowledge to use AI effectively. Natural language interaction is the key to unlocking AI's potential.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community & Resources -->
+    <section style="background: rgba(22, 33, 62, 0.3);">
+        <div class="container">
+            <h2 class="section-title fade-in">Join the Community</h2>
+            <div style="text-align: center; margin-top: 3rem;">
+                <div class="mindset-card fade-in" style="display: inline-block; max-width: 600px;">
+                    <h3>🚀 Ready to Transform Your Financial Future?</h3>
+                    <p style="margin-bottom: 2rem;">Join thousands of students who have already started their journey to financial freedom. Access free courses, trading strategies, and connect with like-minded wealth builders.</p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="#" style="color: #ffd700; text-decoration: none; padding: 0.8rem 1.5rem; border: 2px solid #ffd700; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='#ffd700'; this.style.color='#000'" onmouseout="this.style.background='transparent'; this.style.color='#ffd700'">
+                            📱 Join Telegram Community
+                        </a>
+                        <a href="#" style="color: #ffd700; text-decoration: none; padding: 0.8rem 1.5rem; border: 2px solid #ffd700; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='#ffd700'; this.style.color='#000'" onmouseout="this.style.background='transparent'; this.style.color='#ffd700'">
+                            📚 Access Free Course
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content fade-in">
+                <h3 style="color: #ffd700; margin-bottom: 1rem;">Learn More from Sidhant</h3>
+                <p style="color: #cccccc; margin-bottom: 2rem;">Get comprehensive trading education, market analysis, and wealth creation strategies</p>
+                <a href="https://www.youtube.com/@tradingwithsidhant" target="_blank" class="youtube-link">
+                    📺 Visit YouTube Channel
+                </a>
+            </div>
+            <div style="border-top: 1px solid rgba(255, 215, 0, 0.3); padding-top: 2rem; color: #888;">
+                <p>&copy; 2025 Road to Financial Freedom Initiative. Transform your financial destiny.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Disclaimer: Trading involves risk. Past performance doesn't guarantee future results. Consult financial advisors before making investment decisions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particle System
+        function createParticles() {
+            const particleContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                particleContainer.appendChild(particle);
+            }
+        }
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = counter.textContent.replace(/[^\d]/g, '');
+                const suffix = counter.textContent.replace(/[\d]/g, '');
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + suffix;
+                    }
+                }, 20);
+            });
+        }
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        });
+
+        // Initialize everything when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Trigger counter animation when stats section is visible
+            const statsSection = document.querySelector('.stats-section');
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            statsObserver.observe(statsSection);
+        });
+
+        // Dynamic greeting based on time
+        const hour = new Date().getHours();
+        let greeting = "Good Evening";
+        if (hour < 12) greeting = "Good Morning";
+        else if (hour < 17) greeting = "Good Afternoon";
+
+        // Add dynamic elements
+        setTimeout(() => {
+            const heroContent = document.querySelector('.hero-content p');
+            if (heroContent) {
+                heroContent.innerHTML = `${greeting}! ${heroContent.innerHTML}`;
+            }
+        }, 1000);
+
+        // Mobile Menu Toggle (if needed in future)
+        let mobileMenuOpen = false;
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            mobileMenuOpen = !mobileMenuOpen;
+            navLinks.style.display = mobileMenuOpen ? 'flex' : 'none';
+        }
+
+        // Keyboard shortcuts for better UX
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // Close any open modals or menus
+                mobileMenuOpen = false;
+                document.querySelector('.nav-links').style.display = '';
+            }
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.mindset-card, .skill-item, .strategy-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = this.style.transform.includes('scale') ? 
+                    this.style.transform : 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+
+        // Preload critical resources
+        const criticalImages = [
+            // Add any critical images here if needed
+        ];
+
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Road to Financial Freedom",
+        "description": "Comprehensive financial education and trading strategies by Sidhant",
+        "url": "https://www.youtube.com/@tradingwithsidhant",
+        "sameAs": [
+            "https://www.youtube.com/@tradingwithsidhant"
+        ],
+        "offers": {
+            "@type": "Course",
+            "name": "Wealth OS Installation Course",
+            "description": "Free comprehensive course on systematic wealth creation",
+            "price": "0",
+            "priceCurrency": "INR"
+        }
+    }
+    </script>
+</body>
+</html>
